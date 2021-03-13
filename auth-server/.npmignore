@@ -1,9 +1,9 @@
 # package directories
-node_modules
-jspm_packages
+/node_modules
+/jspm_packages
 
 # Serverless directories
-.serverless
+/.serverless
 
 # environment variables
-config.json
+/config.json

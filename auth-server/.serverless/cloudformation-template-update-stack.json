@@ -77,6 +77,12 @@
         "LogGroupName": "/aws/lambda/auth-server-dev-getAuthURL"
       }
     },
+    "GetAccessTokenLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/auth-server-dev-getAccessToken"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -161,7 +167,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/auth-server/dev/1615370774405-2021-03-10T10:06:14.405Z/auth-server.zip"
+          "S3Key": "serverless/auth-server/dev/1615545085708-2021-03-12T10:31:25.708Z/auth-server.zip"
         },
         "Handler": "handler.getAuthURL",
         "Runtime": "nodejs12.x",
@@ -187,14 +193,57 @@
         "GetAuthURLLogGroup"
       ]
     },
-    "GetAuthURLLambdaVersionOwMY0aCRyROrC3DopmNuPPzQb6rxTqNju364KRFZ0I": {
+    "GetAccessTokenLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/auth-server/dev/1615545085708-2021-03-12T10:31:25.708Z/auth-server.zip"
+        },
+        "Handler": "handler.getAccessToken",
+        "Runtime": "nodejs12.x",
+        "FunctionName": "auth-server-dev-getAccessToken",
+        "MemorySize": 1024,
+        "Timeout": 60,
+        "Environment": {
+          "Variables": {
+            "CLIENT_ID": "1023930682876-g55nctlkvq9a89lhucvkl5jlo4q2ks3f.apps.googleusercontent.com",
+            "CLIENT_SECRET": "M9ybJLmN7qxlMb9Gy738D2Tk",
+            "PROJECT_ID": "meet-app-307207",
+            "CALENDAR_ID": "fullstackwebdev@careerfoundry.com"
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        }
+      },
+      "DependsOn": [
+        "GetAccessTokenLogGroup"
+      ]
+    },
+    "GetAuthURLLambdaVersionDK9VWkKwdWDwvVSApMQsQXWluoYV4zPGDxr7xDo0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAuthURLLambdaFunction"
         },
-        "CodeSha256": "bGXzbJ5f/LHEr9tPXR8bXpQTD7ZM83ZUOLxGLJc/w+U="
+        "CodeSha256": "PAMyftiXkDUZj1slEOEcCxMvkfk+5mWxOCH5ApIpll8="
+      }
+    },
+    "GetAccessTokenLambdaVersionja6BBIbvT6EYhdmtfT0vBq0YTIDoQNansuVPEHY": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "GetAccessTokenLambdaFunction"
+        },
+        "CodeSha256": "PAMyftiXkDUZj1slEOEcCxMvkfk+5mWxOCH5ApIpll8="
       }
     }
   },
@@ -207,7 +256,13 @@
     "GetAuthURLLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetAuthURLLambdaVersionOwMY0aCRyROrC3DopmNuPPzQb6rxTqNju364KRFZ0I"
+        "Ref": "GetAuthURLLambdaVersionDK9VWkKwdWDwvVSApMQsQXWluoYV4zPGDxr7xDo0"
+      }
+    },
+    "GetAccessTokenLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "GetAccessTokenLambdaVersionja6BBIbvT6EYhdmtfT0vBq0YTIDoQNansuVPEHY"
       }
     }
   }
