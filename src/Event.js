@@ -18,7 +18,7 @@ class Event extends Component {
     const { event } = this.props;
 
     return (
-      <div className="Event">
+      <div className="event">
         {!showDetails
           ? <div className="collapsed-view">
             <h3 className="title">{event.summary}</h3>

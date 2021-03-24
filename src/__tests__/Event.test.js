@@ -12,7 +12,7 @@ describe('<Event /> component', () => {
   })
 
   test('render Event div', () => {
-    expect(EventWrapper.find('.Event')).toHaveLength(1);
+    expect(EventWrapper.find('.event')).toHaveLength(1);
   })
 
   test('render collapsed view container', () => {
