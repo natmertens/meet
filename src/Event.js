@@ -12,6 +12,12 @@ class Event extends Component {
     })
   }
 
+  handleHideDetails = () => {
+    this.setState({
+      showDetails: false
+    })
+  }
+
   render() {
 
     const { showDetails } = this.state;
@@ -34,7 +40,7 @@ class Event extends Component {
             <p>About event:</p>
             <p><a href="#">See Details on Google Calendar</a></p>
             <p className="description">{event.description}</p>
-            <button className="hide-details">Hide Details</button>
+            <button className="hide-details" onClick={() => this.handleHideDetails()}>Hide Details</button>
           </div>}
       </div>
 
