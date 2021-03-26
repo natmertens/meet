@@ -12,11 +12,11 @@ class NumberOfEvents extends Component {
       numberOfEvents: value
     });
 
-    /*const location = this.props.selectedLocation ?
+    const location = this.props.selectedLocation ?
       this.props.selectedLocation :
-      'all'*/
+      'all';
 
-    this.props.updateEvents('', value);
+    this.props.updateEvents(location, value);
   }
 
   render() {
