@@ -69,4 +69,24 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
+  test('get list of events matching the number selected by the user', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.setState({ query: '' });
+    const eventObject = { target: { value: 3 } };
+    await NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
+    expect(AppWrapper.state('events').length).toBe(3);
+    AppWrapper.unmount();
+  });
+
+  test('change numberOfEvents state when number of EVents is changed by user', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    AppWrapper.setState({ numberOfEvents: 2 });
+    const eventObject = { target: { value: 3 } };
+    await NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
+    expect(AppWrapper.state('numberOfEvents')).toBe(3);
+    AppWrapper.unmount();
+  });
+
 });

@@ -6,7 +6,7 @@ describe('<NumberOfEvents />', () => {
 
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => { }} />);
   });
 
   test('render text input', () => {
@@ -21,12 +21,7 @@ describe('<NumberOfEvents />', () => {
   test('change state when text input changes', () => {
     const eventObject = { target: { value: 2 } };
     NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
-    expect(NumberOfEventsWrapper.state('query')).toBe(2);
-  });
-
-  test('render default number 32 correctly', () => {
-    const NumberOfEventsWrapper = shallow(<NumberOfEvents />);
-    expect(NumberOfEventsWrapper.state('query')).toBe(32);
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(2);
   });
 
 });
