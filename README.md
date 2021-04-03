@@ -55,10 +55,10 @@ I should be able to specify the number of events displayed on the screen
 so that I can determine how many events I want to see at a time
 
 
-Scenario 1: When user hasn’t specified a number, 32 is the default number
+Scenario 1: When user hasn’t specified a number, 20 is the default number
 Given that the user has not specified a number
 When the user selects a city
-Then a list of 32 events in that city will be displayed on the page
+Then a list of 20 events in that city will be displayed on the page
 
 Scenario 2: User can change the number of events they want to see
 Given that the user has selected a city
