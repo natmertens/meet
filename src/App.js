@@ -34,7 +34,7 @@ class App extends Component {
 
 
   updateEvents = (location, eventCount) => {
-    if (eventCount) {
+    if (eventCount && eventCount > 0 && eventCount < 33) {
       console.log(eventCount)
       this.setState({
         numberOfEvents: eventCount
