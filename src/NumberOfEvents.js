@@ -4,7 +4,7 @@ import { ErrorAlert } from './Alert';
 class NumberOfEvents extends Component {
 
   state = {
-    /*numberOfEvents: this.props.numberOfEvents,*/
+    numberOfEvents: this.props.numberOfEvents,
     errorText: ''
   }
 
@@ -12,7 +12,7 @@ class NumberOfEvents extends Component {
     const value = event.target.value;
 
     this.setState({
-      /*numberOfEvents: value,*/
+      numberOfEvents: value,
       errorText: ''
     });
 

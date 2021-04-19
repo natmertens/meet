@@ -99,7 +99,8 @@ input[type="number"] {
   position: relative;
 }
 
-.details-btn {
+.show-details,
+.hide-details {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -142,10 +143,10 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
+/*.Alert {
   position: fixed;
-  top: 20px;
-}
+  top: 40px;
+}*/
 
 .data-vis-wrapper {
   display: flex;

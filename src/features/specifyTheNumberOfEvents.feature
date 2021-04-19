@@ -1,9 +1,9 @@
 Feature: Specify the number of events
 
-Scenario: When user has not specified a number, twenty is the default number
+Scenario: When user has not specified a number, twelve is the default number
 Given that the user has not specified a number
 When the user opens the app
-Then the default number of events is twenty
+Then the default number of events is twelve
 
 Scenario: User can change the number of events they want to see
 Given the main page is open

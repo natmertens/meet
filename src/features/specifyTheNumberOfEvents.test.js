@@ -8,18 +8,18 @@ const feature = loadFeature('./src/features/specifyTheNumberOfEvents.feature');
 
 defineFeature(feature, test => {
 
-  test('When user has not specified a number, twenty is the default number', ({ given, when, then }) => {
+  test('When user has not specified a number, twelve is the default number', ({ given, when, then }) => {
     given('that the user has not specified a number', () => {
 
     });
 
-    let NumberOfEventsWrapper;
+    let AppWrapper;
     when('the user opens the app', () => {
-      NumberOfEventsWrapper = mount(<NumberOfEvents numberOfEvents={20} />);
+      AppWrapper = mount(<App />);
     });
 
-    then('the default number of events is twenty', () => {
-      expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(20);
+    then('the default number of events is twelve', () => {
+      expect(AppWrapper.state('numberOfEvents')).toBe(12);
     });
   });
 
