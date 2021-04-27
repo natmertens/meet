@@ -55,23 +55,13 @@ export const getEvents = async () => {
     return mockData;
   }
 
-  var host = "natmertens.github.io";
-  if ((host == window.location.host) && (window.location.protocol != "https:"))
-    window.location.protocol = "https";
-
-  /*if (result.data) {
-    var locations = extractLocations(result.data.events);
-    localStorage.setItem('lastEvents', JSON.stringify(result.data));
-    localStorage.setItem('locations', JSON.stringify(locations));
-  }*/
-
   /*if (!navigator.onLine) {
     const data = localStorage.getItem('lastEvents');
     NProgress.done();
     return data?JSON.parse(events).events:[];;
   }*/
 
-  /*check for an aceess token*/
+  /*check for an access token*/
   const token = await getAccessToken();
 
   if (token) {
