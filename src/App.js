@@ -20,16 +20,23 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
+
+    if (!navigator.onLine) {
+      this.setState({
+        offlineText: 'You are using the app offline. Data might not be up-to-date.'
+      });
+    }
+    else {
+      this.setState({
+        offlineText: ''
+      });
+    }
+
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({
           events: events.slice(0, this.state.numberOfEvents),
           locations: extractLocations(events)
-        });
-      }
-      if (!navigator.onLine) {
-        this.setState({
-          offlineText: 'You are using this app offline'
         });
       }
     });
