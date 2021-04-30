@@ -5,6 +5,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
+import { OfflineAlert } from './Alert';
 
 class App extends Component {
 
@@ -12,7 +13,8 @@ class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 12,
-    selectedLocation: null
+    selectedLocation: null,
+    offlineText: ''
   }
 
 
@@ -23,6 +25,11 @@ class App extends Component {
         this.setState({
           events: events.slice(0, this.state.numberOfEvents),
           locations: extractLocations(events)
+        });
+      }
+      if (!navigator.onLine) {
+        this.setState({
+          offlineText: 'You are using this app offline'
         });
       }
     });
@@ -56,6 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <OfflineAlert text={this.state.offlineText} />
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} selectedLocation={this.state.selectedLocation} />
         <EventList events={this.state.events} />
