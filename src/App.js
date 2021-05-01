@@ -71,6 +71,7 @@ class App extends Component {
     return (
       <div className="App">
         <OfflineAlert text={this.state.offlineText} />
+        <h3>Meet App</h3>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} selectedLocation={this.state.selectedLocation} />
         <EventList events={this.state.events} />
