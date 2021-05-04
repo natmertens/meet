@@ -6,9 +6,11 @@ import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
 import { OfflineAlert } from './Alert';
+import { Offline } from 'react-detect-offline';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
+
 
 class App extends Component {
 
@@ -24,16 +26,9 @@ class App extends Component {
   componentDidMount() {
     this.mounted = true;
 
-    if (!navigator.onLine) {
-      this.setState({
-        offlineText: 'You are using the app offline. Data might not be up-to-date.'
-      });
-    }
-    else {
-      this.setState({
-        offlineText: ''
-      });
-    }
+    this.setState({
+      offlineText: 'You are using the app offline so data might not be up-to-date'
+    });
 
     getEvents().then((events) => {
       if (this.mounted) {
@@ -84,7 +79,9 @@ class App extends Component {
     const { locations, events } = this.state;
     return (
       <div className="App">
-        <OfflineAlert text={this.state.offlineText} />
+        <Offline>
+          <OfflineAlert text={this.state.offlineText} />
+        </Offline>
         <h2>Meet App</h2>
         <p>Choose Your Nearest City:</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
