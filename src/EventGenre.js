@@ -9,7 +9,7 @@ const EventGenre = ({ events }) => {
 
   useEffect(() => { setData(() => getData()); }, [events]);
 
-  getData = () => {
+  const getData = () => {
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
     const summary = events.map((event) => {
       const eventSummary = event.summary;
@@ -27,13 +27,13 @@ const EventGenre = ({ events }) => {
     return data.filter((data) => data.value >= 1);
   }
 
-  /*const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];*/
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   return (
     <ResponsiveContainer height={400}>
       <PieChart width={400} height={400}>
         <Pie
-          data={this.getData()}
+          data={getData()}
           cx={200}
           cy={200}
           labelLine={false}
@@ -41,6 +41,9 @@ const EventGenre = ({ events }) => {
           fill="#8884d8"
           dataKey="value"
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
         </Pie>
 
       </PieChart>
