@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-describe('show/hide an event details', () => {
+describe('show/hide an event\’s details', () => {
   let browser;
   let page;
   jest.setTimeout(30000);
@@ -32,4 +32,5 @@ describe('show/hide an event details', () => {
     const eventDetails = await page.$('.event .expanded-view');
     expect(eventDetails).toBeNull();
   });
+
 });

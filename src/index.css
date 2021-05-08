@@ -115,6 +115,10 @@ input[type="number"] {
   font-weight: 600;
 }
 
+.event-header {
+  margin: 50px auto 30px auto;
+}
+
 .group-name {
   text-transform: uppercase;
   font-size: 14px;
@@ -130,8 +134,7 @@ input[type="number"] {
 }
 
 .numberOfEvents {
-  width: 200px;
-  margin: 20px 0;
+  margin: 20px;
   text-align: center;
 }
 
@@ -142,11 +145,6 @@ input[type="number"] {
   padding: 20px;
   font-family: sans-serif;
 }
-
-/*.Alert {
-  position: fixed;
-  top: 40px;
-}*/
 
 .data-vis-wrapper {
   display: flex;

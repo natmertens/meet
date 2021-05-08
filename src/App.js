@@ -77,17 +77,17 @@ class App extends Component {
   }
 
   render() {
-    const { locations, events } = this.state;
+    const { events } = this.state;
     return (
       <div className="App">
         <Offline>
           <OfflineAlert text={this.state.offlineText} />
         </Offline>
-        <h2>Meet App</h2>
+        <h1>Meet App</h1>
         <p>Choose Your Nearest City:</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} selectedLocation={this.state.selectedLocation} />
-        <h4>Events in Each City</h4>
+        <h3 className="event-header">Events in Each City</h3>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400}>

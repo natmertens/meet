@@ -38,15 +38,11 @@ describe('<Event /> component', () => {
   test('render contents of expanded view', () => {
     EventWrapper.setState({ showDetails: false });
     EventWrapper.find('.show-details').simulate('click');
-    expect(EventWrapper.find('.expanded-view').children()).toHaveLength(7);
+    expect(EventWrapper.find('.expanded-view').children()).toHaveLength(6);
   });
 
   test('render heading with correct name', () => {
     expect(EventWrapper.find('.title').text()).toBe('Learn JavaScript');
-  });
-
-  test('render event start with correct name', () => {
-    expect(EventWrapper.find('.event-start').text()).toBe('2020-05-19T16:00:00+02:00');
   });
 
   test('render event location with correct name', () => {
