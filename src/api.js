@@ -58,10 +58,10 @@ export const getEvents = async () => {
     return data ? JSON.parse(data).events : [];
   }
 
-  /*if (window.location.href.startsWith('http://localhost')) {
-    NProgress.done();
-    return mockData;
-  }*/
+  /* if (window.location.href.startsWith('http://localhost')) {
+     NProgress.done();
+     return mockData;
+   } */
 
   /*check for an access token*/
   const token = await getAccessToken();

@@ -40,7 +40,6 @@ const EventGenre = ({ events }) => {
           dataKey="value"
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
         </Pie>
-
       </PieChart>
     </ResponsiveContainer>
   );

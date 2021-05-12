@@ -40,7 +40,6 @@ class NumberOfEvents extends Component {
           placeholder="12"
           onChange={this.handleInputChanged}
         />
-        <ErrorAlert text={this.state.errorText} />
       </div>
     );
   }
