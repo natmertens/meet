@@ -1,7 +1,7 @@
 # Meet App
 
 ## Overview: 
-The objective of this project was to build a serverless, progressive web application using React as well as a test-driven development technique. The app uses the Google Calendar API to fetch upcoming events and allows users to search for upcoming web development events in their city, specify the number of events they want to see, and get event details. In addition, they can view a chart displaying the number of upcoming events by city.
+The objective of this project was to build a serverless, progressive web application using React as well as a test-driven development technique. The app uses the Google Calendar API and AWS Lambda to fetch upcoming events and allows users to search for upcoming web development events in their city, specify the number of events they want to see, and get event details. In addition, they can view a chart displaying the number of upcoming events by city.
 
 ## Key Features:
 
@@ -93,15 +93,12 @@ Given that the user has not selected a city
 When the user goes to the “data visualization” page
 Then the user will be able to see a chart with the number of upcoming events in each city
 
-## Project Dependencies:
+## To Start:
 
-- React
-- Google Calendar API
-- AWS Lambda
-- Recharts library
+Run "npm install" to install all dependencies.
 
-## Build:
+## Build for Development:
 
-- Run app via "npm run start"
+- Run app via "npm run start".
 
 
