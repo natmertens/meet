@@ -66,6 +66,9 @@ module.exports.getAccessToken = async (event) => {
     .then((token) => {
       return {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
         body: JSON.stringify(token)
       };
     })
@@ -110,6 +113,9 @@ module.exports.getCalendarEvents = async (event) => {
     .then((results) => {
       return {
         statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        },
         body: JSON.stringify({ events: results.data.items })
       };
     })
