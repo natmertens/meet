@@ -33,16 +33,16 @@ class Event extends Component {
             <h3 className="title">{event.summary}</h3>
             <p className="event-start">{date}, {time}</p>
             <p className="location">{event.location}</p>
-            <button className="show-details" onClick={() => this.handleShowDetails()}>Show Details</button>
+            <button className="show-details" class="btn btn-secondary mt-3" onClick={() => this.handleShowDetails()}>Show Details</button>
           </div>
 
           : <div className="expanded-view">
             <h3 className="title">{event.summary}</h3>
             <p className="event-start">{date}, {time}</p>
             <p className="location">{event.location}</p>
-            <p>About the event:</p>
+            <h4>About the event:</h4>
             <p className="description">{event.description}</p>
-            <button className="hide-details" onClick={() => this.handleHideDetails()}>Hide Details</button>
+            <button className="hide-details" class="btn btn-secondary mt-3" onClick={() => this.handleHideDetails()}>Hide Details</button>
           </div>}
       </div>
 

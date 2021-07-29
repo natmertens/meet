@@ -83,11 +83,11 @@ class App extends Component {
         <Offline>
           <OfflineAlert text={this.state.offlineText} />
         </Offline>
-        <h1>Meet App</h1>
+        <h1 class="mb-4">Meet App</h1>
         <p>Choose Your Nearest City:</p>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} selectedLocation={this.state.selectedLocation} />
-        <h3 className="event-header">Events in Each City</h3>
+        <h2 className="event-header">Events in Each City</h2>
         <div className="data-vis-wrapper">
           <EventGenre events={events} />
           <ResponsiveContainer height={400}>

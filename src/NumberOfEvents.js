@@ -35,6 +35,7 @@ class NumberOfEvents extends Component {
         <ErrorAlert text={this.state.errorText} />
         <p>Number of Events:</p>
         <input
+          type="number"
           className="event-number"
           value={this.state.numberOfEvents}
           placeholder="12"
